@@ -12,13 +12,13 @@ add_library(module_std)
 target_sources(module_std
 	PUBLIC
 		FILE_SET CXX_MODULES FILES
-			gnu/std.cc # modified from MinGW\include\c++\16.0.0\bits\std.cc
+			gnu/std.cc # copied from MinGW\include\c++\16.0.0\bits\std.cc
 )
 target_compile_features(module_std PUBLIC cxx_std_26)
 # also to remove (see below):
 # target_link_libraries(...XYZ... PRIVATE module_std)
 
-# hack #2: advanced features like std::print(), std::stacktrace, etc in g++14 and g++15.0 HEAD:
+# hack #2: advanced features like std::print(), std::stacktrace, etc in g++14, g++15, and g++16.0 HEAD:
 # target_link_libraries(...XYZ... PRIVATE stdc++exp)
 
 add_library(my_module)
